@@ -1,1 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health & Hormone Optimization</title>
+    <style>
+        :root {
+            --primary: #1a4314; /* Professional Dark Green */
+            --accent: #4e7d48;
+            --bg: #f9faf9;
+            --card-bg: #ffffff;
+            --text: #2d3436;
+        }
+        
+        * { box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto; 
+            background-color: var(--bg); 
+            color: var(--text); 
+            margin: 0; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            padding: 20px;
+            line-height: 1.6;
+        }
 
+        .header { text-align: center; margin: 30px 0; max-width: 400px; }
+        .header h1 { font-size: 1.6rem; margin-bottom: 8px; color: var(--primary); letter-spacing: -0.5px; }
+        .header p { font-size: 1rem; color: #636e72; margin: 0; }
+
+        .container { width: 100%; max-width: 420px; }
+
+        /* Guide Buttons */
+        .guide-card {
+            background: var(--card-bg);
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 18px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            transition: all 0.2s ease;
+        }
+        .guide-card:active { transform: scale(0.98); background: #f0f4f0; }
+
+        .guide-card span:first-child { font-weight: 600; font-size: 1.05rem; }
+
+        /* The Hidden Content Area */
+        .guide-content {
+            display: none;
+            background: #ffffff;
+            margin: -10px 5px 15px 5px;
+            padding: 20px;
+            border-bottom-left-radius: 16px;
+            border-bottom-right-radius: 16px;
+            border: 1px solid #e2e8f0;
+            border-top: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .guide-text { font-size: 0.95rem; color: #4a4a4a; white-space: pre-line; }
+
+        /* Professional CTA Section */
+        .cta-box {
+            margin-top: 40px;
+            padding: 25px;
+            background: var(--primary);
+            color: white;
+            border-radius: 20px;
+            text-align: center;
+            width: 100%;
+        }
+        .cta-box h3 { margin-top: 0; font-size: 1.2rem; }
+        .cta-link {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .footer { margin-top: 30px; font-size: 0.8rem; color: #b2bec3; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Optimizer Hub 🌿</h1>
+        <p>Expert protocols for your health journey</p>
+    </div>
+
+    <div class="container">
+        <div class="guide-card" onclick="toggleGuide('guide1')">
+            <span>🧬 Hormone Optimization</span>
+            <span>↓</span>
+        </div>
+        <div id="guide1" class="guide-content">
+            <p class="guide-text">
+                <strong>Protocol 01: The Morning Reset</strong>
+                • 10 mins morning sunlight (cortisol regulation).
+                • High protein breakfast (30g+).
+                • Limit caffeine until 90 mins after waking.
+            </p>
+        </div>
+
+        <div class="guide-card" onclick="toggleGuide('guide2')">
+            <span>🥗 Nutrition Fundamentals</span>
+            <span>↓</span>
+        </div>
+        <div id="guide2" class="guide-content">
+            <p class="guide-text">
+                <strong>Key Targets:</strong>
+                • Focus on whole-food fats for hormone synthesis.
+                • Include fermented foods (Kefir/Sauerkraut).
+                • Eliminate seed oils and processed sugars.
+            </p>
+        </div>
+
+        <div class="guide-card" onclick="toggleGuide('guide3')">
+            <span>💤 Sleep & Recovery</span>
+            <span>↓</span>
+        </div>
+        <div id="guide3" class="guide-content">
+            <p class="guide-text">
+                <strong>Optimization:</strong>
+                • Room temp below 68°F (20°C).
+                • Magnesium Glycinate 30 mins before bed.
+                • No blue light 1 hour before sleep.
+            </p>
+        </div>
+
+        <div class="cta-box">
+            <h3>Ready for 1-on-1 Coaching?</h3>
+            <p>I'll help you build a personalized protocol.</p>
+            <a href="mailto:YOUR_EMAIL@gmail.com" class="cta-link">Send me a message</a>
+        </div>
+    </div>
+
+    <div class="footer">© 2024 Optimization Protocol</div>
+
+    <script>
+        function toggleGuide(id) {
+            const element = document.getElementById(id);
+            const isVisible = element.style.display === 'block';
+            
+            // Close all open guides first
+            document.querySelectorAll('.guide-content').forEach(el => el.style.display = 'none');
+            
+            // Open the one we clicked
+            element.style.display = isVisible ? 'none' : 'block';
+        }
+    </script>
+
+</body>
+  </html>
+          
