@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Health & Hormone Optimization</title>
+    <title>Optimizer Hub | Health & Hormones</title>
     <style>
         :root {
-            --primary: #1a4314; /* Professional Dark Green */
-            --accent: #4e7d48;
-            --bg: #f9faf9;
-            --card-bg: #ffffff;
-            --text: #2d3436;
+            --primary: #4e7d48; /* Lighter green for dark mode contrast */
+            --accent: #81b37a;
+            --bg: #121212;      /* Deep Dark Background */
+            --card-bg: #1e1e1e; /* Slightly lighter card background */
+            --text: #ffffff;    /* White text */
+            --sub-text: #b2bec3;
         }
         
         * { box-sizing: border-box; }
@@ -27,15 +28,15 @@
         }
 
         .header { text-align: center; margin: 30px 0; max-width: 400px; }
-        .header h1 { font-size: 1.6rem; margin-bottom: 8px; color: var(--primary); letter-spacing: -0.5px; }
-        .header p { font-size: 1rem; color: #636e72; margin: 0; }
+        .header h1 { font-size: 1.8rem; margin-bottom: 8px; color: var(--primary); letter-spacing: -0.5px; }
+        .header p { font-size: 1rem; color: var(--sub-text); margin: 0; }
 
         .container { width: 100%; max-width: 420px; }
 
         /* Guide Buttons */
         .guide-card {
             background: var(--card-bg);
-            border: 1px solid #e2e8f0;
+            border: 1px solid #333;
             border-radius: 16px;
             padding: 18px;
             margin-bottom: 12px;
@@ -43,22 +44,21 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
             transition: all 0.2s ease;
         }
-        .guide-card:active { transform: scale(0.98); background: #f0f4f0; }
-
+        .guide-card:active { transform: scale(0.98); background: #252525; }
         .guide-card span:first-child { font-weight: 600; font-size: 1.05rem; }
 
         /* The Hidden Content Area */
         .guide-content {
             display: none;
-            background: #ffffff;
+            background: #1e1e1e;
             margin: -10px 5px 15px 5px;
             padding: 20px;
             border-bottom-left-radius: 16px;
             border-bottom-right-radius: 16px;
-            border: 1px solid #e2e8f0;
+            border: 1px solid #333;
             border-top: none;
             animation: fadeIn 0.3s ease;
         }
@@ -68,7 +68,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .guide-text { font-size: 0.95rem; color: #4a4a4a; white-space: pre-line; }
+        .guide-text { font-size: 0.95rem; color: #e0e0e0; white-space: pre-line; }
 
         /* Professional CTA Section */
         .cta-box {
@@ -80,19 +80,21 @@
             text-align: center;
             width: 100%;
         }
-        .cta-box h3 { margin-top: 0; font-size: 1.2rem; }
+        .cta-box h3 { margin-top: 0; font-size: 1.3rem; }
         .cta-link {
             display: inline-block;
             background: white;
-            color: var(--primary);
-            padding: 12px 25px;
+            color: #1a4314;
+            padding: 14px 28px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: bold;
-            margin-top: 10px;
+            margin-top: 15px;
+            transition: transform 0.2s;
         }
+        .cta-link:active { transform: scale(0.95); }
 
-        .footer { margin-top: 30px; font-size: 0.8rem; color: #b2bec3; }
+        .footer { margin: 40px 0; font-size: 0.8rem; color: #636e72; text-align: center; }
     </style>
 </head>
 <body>
@@ -109,21 +111,18 @@
         </div>
         <div id="guide1" class="guide-content">
             <p class="guide-text">
-                <strong>Protocol 01:hormonal guide for optimal hormones 
-                   
-                • 10 mins morning sunlight zinc+ vitamin D on empty stomach with fats
+                <strong>Protocol:</strong>
+                • 10 mins morning sunlight zinc + vitamin D on empty stomach with fats.
                 • High protein high fat breakfast.
                 • Limit caffeine until 90-120mins after waking.
-                • pre workout slow digesting carbs, workout - heavy lifting excericises, plyometric.protein and carbs right after
-                • creatine if available post workout 
-                • overal focusing on hitting your nutrients minimizing prolactin focusing on thyroid optimization 
-                • be on the sun throughout the day as much as you can
-                • avoid endocrine disruptors such as plastic fragnances Polyester 
-                • Manage your Cortisol, be more outside sync your circadian rhythm in breathing exercises before bed
-                • make sure you don't neglect carbs, get your nutrients in focus on sleep and quality of the sleep 
-                • adapt a masculine confident mindset and behavior 
-                    
-                
+                • Pre-workout: slow digesting carbs. 
+                • Workout: heavy lifting, plyometrics. Protein and carbs right after.
+                • Creatine post-workout if available.
+                • Minimize prolactin; focus on thyroid optimization.
+                • Maximize sun exposure throughout the day.
+                • Avoid endocrine disruptors (plastics, fragrances, polyester).
+                • Manage cortisol: breathing exercises before bed.
+                • Adopt a masculine, confident mindset and behavior.
             </p>
         </div>
 
@@ -137,9 +136,10 @@
                 • Focus on whole-food fats for hormone synthesis.
                 • Include fermented foods (Kefir/Sauerkraut).
                 • Eliminate seed oils and processed sugars.
-            </p> • have a macro based balanced diet focus on micros enough nutrients 
-                  include in root vegetables, fruits meat organs raw dairy animal fats only for cooking 
-                  time your foods focus on quality 
+                • Macro-based balanced diet focused on micros.
+                • Root vegetables, fruits, meat, organs, raw dairy, animal fats.
+                • Focus on food quality and timing.
+            </p>
         </div>
 
         <div class="guide-card" onclick="toggleGuide('guide3')">
@@ -152,89 +152,77 @@
                 • Room temp below 68°F (20°C).
                 • Magnesium Glycinate 30-60 mins before bed.
                 • No blue light 1-2 hours before sleep.
-                avoid light for the last 2 hours at most have a dim warm toned lamp
-                do some journaling/reading and stretching 
-                consider in glycine 3-5g for better sleep quality 
-                
+                • Dim, warm-toned lamps for the last 2 hours.
+                • Journaling, reading, and stretching.
+                • Glycine 3-5g for better sleep quality.
             </p> 
-           </div>
-                    <div class="guide-card" onclick="toggleGuide('g_height')"><span>📏 Height Optimization</span><span>↓</span></div>
-        <div id="g_height"> class="guide-content"><strong>Protocol:</strong>
-         heavy compounds, explosive movements HIIT Sprints 
-            nutrient dense foods collagen and vit C getting your micronutrients in
-            zinc Mg k2 phosphorus calcium vit D boron b Vitamins 
-            getting carbs in around workouts, getting enough leucine- whey dairy meat
-            a lot of raw dairy cheese, colostrum milk kefir Quark etc
-            enough macros generally 1g of each per lb of bw more if your physical demands it 
-            optimizing sleep to absolute maximum capacity 
-            optimizing other hormones testosterone DHT balancing estrogen thyroid hormones
-            prolactin cortisol 
-        • Use <br> for new lines.</div>
-        
-        <div class="guide-card" onclick="toggleGuide('g_bone')"><span>🦴 Bone Mass & Density</span><span>↓</span></div>
-        <div id="g_bone" class="guide-content"><strong>Protocol:</strong>
-        • optimizing hormones like GH igf1 testosterone DHT estrogen thyroid hormones etc
-        focusing on sleep, diet micronutrient rich foods like liver old raw cheese oysters meat
-        getting a lot of macros in 1g of each per lb of bw
-        sprints heavy lifts explosive movements 
-        raw dairy ofc
-        a bone growth formula-Raw Beetroot Juice (Wait 30 mins)
-        Explosive Movements (Jumps/Sprints)
-       Isometric Jaw Clench
-       humming "MMM" (60 seconds)
-       2Hz Bone Tapping (Simultaneous with humming)
-       Old Aged Raw Cheese
-       Raisins/Prunes
-       Sheep Kefir + Raw Honey + Whey Shake
-      Sweet or Regular Potatoes
-      Ice Water Face-Dunk (60 seconds)</div>
-            
-              
-        <div class="guide-card" onclick="toggleGuide('g_supps')"><span>💊 Supplement Timing</span><span>↓</span></div>
-        <div id="g_supps" class="guide-content"><strong>Protocol:</strong>
-
-        
-            </div>
-            timing and pairing suplements
-            vitamin D, morning with fats K2 calcium and boron
-            and b vitamins, for middayomega 3s- fats and iron and collagen, pair with vitamin C
-            at night magnesium, glycine L citrulline/L arginine 
-            zinc (not before bed or close to magnesium)
-            fat soluble vitamins A,D,E,K -pair with fats 
-            keep out magnesium iron calcium zinc away from each other by 3-4 hours 
-            always pair iron and collagen with vitamin C
-            make sure to get copper along with zinc as they deplete each other 
-            
-            
-
-        <div class="guide-card" onclick="toggleGuide('g_avoid')"><span>🚫 What to Avoid</span><span>↓</span></div>
-        <div id="g_avoid" class="guide-content"><strong>Avoid:</strong>
-        </div> avoid overall endocrine disruptors seed oils green vegetables 
-        avoid too long or frequent cardio avoid stressing fapping or excessive doomscrolling 
-         
-            
-        <div class="cta-box">
-            <h3>Ready for 1-on-1 Coaching?</h3>
-            <p>I'll help you build a personalized protocol.</p>
-            <a href=https://www.tiktok.com/@mid_tier_endocrinologist?_r=1&_t=ZN-94g4p2BUi4k" class="cta-link">Send me a message</a>
         </div>
-    </div>
 
-    <div class="footer">© 2024 Optimization Protocol</div>
-
-    <script>
-        function toggleGuide(id) {
-            const element = document.getElementById(id);
-            const isVisible = element.style.display === 'block';
+        <div class="guide-card" onclick="toggleGuide('g_height')">
+            <span>📏 Height Optimization</span>
+            <span>↓</span>
+        </div>
+        <div id="g_height" class="guide-content">
+            <p class="guide-text">
+                <strong>Protocol:</strong>
+                • Heavy compounds, explosive movements, HIIT Sprints.
+                • Nutrient dense foods: Collagen and Vit C.
+                • Zinc, Mg, K2, Phosphorus, Calcium, Vit D, Boron, B Vitamins.
+                • Carbs around workouts; Leucine (Whey, dairy, meat).
+                • Raw dairy, cheese, colostrum, milk kefir, quark.
+                • 1g of macros per lb of bodyweight (more if active).
+                • Maximize sleep and optimize T, DHT, and Thyroid.
+                • Balance Estrogen, Prolactin, and Cortisol.
+            </p>
+        </div>
+        
+        <div class="guide-card" onclick="toggleGuide('g_bone')">
+            <span>🦴 Bone Mass & Density</span>
+            <span>↓</span>
+        </div>
+        <div id="g_bone" class="guide-content">
+            <p class="guide-text">
+                <strong>Protocol:</strong>
+                • Optimize GH, IGF1, Testosterone, DHT, Estrogen, Thyroid.
+                • Micronutrient rich foods: Liver, old raw cheese, oysters, meat.
+                • 1g macros per lb of bodyweight.
+                • Sprints, heavy lifts, explosive movements.
+                • Bone Growth Formula: Raw Beetroot Juice (Wait 30 mins) + Explosive Movements.
+                • Isometric Jaw Clench & Humming "MMM" (60s).
+                • 2Hz Bone Tapping (Simultaneous with humming).
+                • Old Aged Raw Cheese, Raisins, Prunes.
+                • Sheep Kefir + Raw Honey + Whey Shake.
+                • Ice Water Face-Dunk (60 seconds).
+            </p>
+        </div>
             
-            // Close all open guides first
-            document.querySelectorAll('.guide-content').forEach(el => el.style.display = 'none');
-            
-            // Open the one we clicked
-            element.style.display = isVisible ? 'none' : 'block';
-        }
-    </script>
+        <div class="guide-card" onclick="toggleGuide('g_supps')">
+            <span>💊 Supplement Timing</span>
+            <span>↓</span>
+        </div>
+        <div id="g_supps" class="guide-content">
+            <p class="guide-text">
+                <strong>Timing & Pairing:</strong>
+                • <b>Morning:</b> Vit D with fats, K2, Calcium, Boron, B-Vitamins.
+                • <b>Midday:</b> Omega 3s, Iron, Collagen (pair with Vit C).
+                • <b>Night:</b> Magnesium, Glycine, L-Citrulline/L-Arginine.
+                • <b>Note:</b> Zinc (not before bed or close to magnesium).
+                • Keep Magnesium, Iron, Calcium, and Zinc 3-4 hours apart.
+                • Always get copper with zinc to prevent depletion.
+            </p>
+        </div>
 
-</body>
-  </html>
-          
+        <div class="guide-card" onclick="toggleGuide('g_avoid')">
+            <span>🚫 What to Avoid</span>
+            <span>↓</span>
+        </div>
+        <div id="g_avoid" class="guide-content">
+            <p class="guide-text">
+                <strong>Avoid:</strong>
+                • Endocrine disruptors and seed oils.
+                • Green vegetables (Oxalates/Defense chemicals).
+                • Frequent long-distance cardio.
+                • Excessive stress, fapping, or doomscrolling.
+            </p>
+            </div>
+                    
