@@ -18,12 +18,11 @@
         
         body { 
             background-color: var(--bg-gray);
-            /* SVG Background featuring Steroid/Hormone structures (4-ring backbone) */
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 100 100'%3E%3Cg fill='none' stroke='rgba(255,255,255,0.08)' stroke-width='0.8'%3E%3Cpath d='M10 40 L20 35 L35 35 L45 40 L35 55 L20 55 Z'/%3E%3Cpath d='M45 40 L55 35 L70 35 L80 40 L70 55 L55 55 Z'/%3E%3Cpath d='M35 55 L45 65 L60 65 L70 55'/%3E%3Cpath d='M70 35 L75 25 L90 25 L95 35 L90 45 L75 45 Z'/%3E%3Ccircle cx='15' cy='35' r='1.5'/%3E%3Cpath d='M80 40 L85 40'/%3E%3C/g%3E%3C/svg%3E");
             color: var(--text-white);
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
-            display: flex;
+            display: flex; 
             flex-direction: column;
             align-items: center;
             padding: 20px;
@@ -54,7 +53,6 @@
             transition: 0.3s;
         }
 
-        /* Color Glows for specific cards */
         .card-gold { border-color: var(--neon-gold); }
         .card-gold span { text-shadow: 0 0 12px var(--neon-gold); }
         .card-red { border-color: var(--neon-red); }
@@ -78,5 +76,205 @@
         .guide-text { font-size: 1.05rem; line-height: 1.8; font-weight: 700; color: white; margin: 0; }
 
         .bad { color: var(--neon-red); text-shadow: 0 0 5px rgba(255, 62, 62, 0.4); }
-        .good { color: var(--neon-green); text-shadow: 0 0 5px rgba(57, 255, 20, 0
+        .good { color: var(--neon-green); text-shadow: 0 0 5px rgba(57, 255, 20, 0.3); }
+        .important { color: var(--neon-gold); text-shadow: 0 0 5px rgba(255, 204, 0, 0.3); }
+
+        .coffee-box {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid var(--neon-gold);
+            background: rgba(255, 204, 0, 0.05);
+            border-radius: 8px;
+            font-size: 0.95rem;
+        }
+
+        .cta-box {
+            margin-top: 50px;
+            padding: 30px;
+            background: #000;
+            border: 2px solid var(--neon-blue);
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 0 30px var(--neon-blue);
+        }
+
+        .cta-link {
+            display: inline-block;
+            background: white;
+            color: black;
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 900;
+            margin-top: 15px;
+            box-shadow: 0 0 15px white;
+            text-transform: uppercase;
+        }
+
+        .footer { margin: 60px 0; font-size: 0.75rem; color: #666; text-align: center; letter-spacing: 3px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1 class="neon-text">OPTIMIZER HUB 🧪</h1>
+    </div>
+
+    <div class="container">
+
+        <div class="guide-card card-green" onclick="toggleGuide('g1')">
+            <span class="neon-text">🥗 Nutrition</span>
+            <span>▼</span>
+        </div>
+        <div id="g1" class="guide-content">
+            <p class="guide-text">
+                ✅ Focus on <span class="important">Whole-Food Fats</span>
+                ✅ <span class="bad">Eliminate Seed Oils</span> and sugars.
+                ✅ Include <span class="good">Root Vegetables</span> and meat.
+                ✅ Prioritize <span class="important">Raw Dairy</span> and animal fats.
+            </p> 
+        </div>
+
+        <div class="guide-card card-green" onclick="toggleGuide('g2')">
+            <span class="neon-text">💤 Sleep & Recovery</span>
+            <span>▼</span>
+        </div>
+        <div id="g2" class="guide-content">
+            <p class="guide-text">
+                ✅ Room temp below <span class="good">68°F</span>.
+                ✅ <span class="important">Magnesium Glycinate</span> before bed.
+                ✅ <span class="bad">No Blue Light</span> 2 hours before sleep.
+                ✅ Use <span class="good">Dim Warm Lamps</span>.
+            </p> 
+        </div>
+
+        <div class="guide-card card-gold" onclick="toggleGuide('g3')">
+            <span class="neon-text">📏 Height</span>
+            <span>▼</span>
+        </div>
+        <div id="g3" class="guide-content">
+            <p class="guide-text">
+                ✅ <span class="important">Heavy Compounds</span> and Sprints.
+                ✅ Zinc, Mg, <span class="good">K2</span>, and Vit D.
+                ✅ <span class="important">Raw Dairy</span> and colostrum.
+                ✅ Maximize <span class="good">Sleep Quality</span>.
+            </p>
+        </div>
+        
+        <div class="guide-card card-gold" onclick="toggleGuide('g4')">
+            <span class="neon-text">🦴 Bone Mass</span>
+            <span>▼</span>
+        </div>
+        <div id="g4" class="guide-content">
+            <p class="guide-text">
+                ✅ Optimize <span class="important">GH & IGF1</span>.
+                ✅ <span class="good">Nutrient Dense</span> liver and oysters.
+                ✅ <span class="important">Explosive Movements</span>.
+                ✅ <span class="good">2Hz Bone Tapping</span>.
+            </p>
+        </div>
+
+        <div class="guide-card card-gold" onclick="toggleGuide('g6')">
+            <span class="neon-text">📈 GH-IGF1</span>
+            <span>▼</span>
+        </div>
+        <div id="g6" class="guide-content">
+            <p class="guide-text">
+                ✅ <span class="good">Protein & Carb</span> focused diet.
+                ✅ <span class="important">Plyometrics</span> training.
+                ✅ <span class="important">L-Arginine</span> before bed.
+                ✅ <span class="bad">Manage Stress</span> levels.
+            </p>
+        </div>
+
+        <div class="guide-card card-gold" onclick="toggleGuide('g7')">
+            <span class="neon-text">🔥 Test & DHT</span>
+            <span>▼</span>
+        </div>
+        <div id="g7" class="guide-content">
+            <p class="guide-text">
+                ✅ <span class="important">High Cholesterol</span> diet.
+                ✅ <span class="bad">Avoid Porn/Fapping</span>.
+                ✅ <span class="important">L-Carnitine Tartrate</span>.
+                <div class="coffee-box">
+                    <strong class="important">☕ ANABOLIC COFFEE:</strong><br>
+                    1.5tsp sugar, bit of honey, cinnamon, 40ml milk, pinch of salt, thick tsp butter and coco oil. <br>
+                    <span class="good">Drink 90-120m after waking</span>. Avoid past 2pm.
+                </div>
+            </p>
+        </div>
+
+        <div class="guide-card card-green" onclick="toggleGuide('g8')">
+            <span class="neon-text">🧬 Lowering SHBG</span>
+            <span>▼</span>
+        </div>
+        <div id="g8" class="guide-content">
+            <p class="guide-text">
+                ✅ <span class="good">Stress Management</span>.
+                ✅ <span class="important">Boron</span>, Zinc, and Vit D.
+                ✅ Cooked <span class="good">Cruciferous Veggies</span>.
+                ✅ Prioritize <span class="important">Liver Health</span>.
+                <div class="coffee-box">
+                    <strong class="important">☕ ANABOLIC COFFEE:</strong><br>
+                    1.5tsp sugar, honey, cinnamon, 40ml milk, salt, butter and coco oil. <br>
+                    <span class="good">Optimal window: 90-120m after waking</span>.
+                </div>
+            </p>
+        </div>
+
+        <div class="guide-card card-red" onclick="toggleGuide('g9')">
+            <span class="neon-text">📉 Cortisol & Prolactin</span>
+            <span>▼</span>
+        </div>
+        <div id="g9" class="guide-content">
+            <p class="guide-text">
+                ✅ <span class="important">P5P (Vit B6)</span> for prolactin.
+                ✅ <span class="good">Nature & Cold Exposure</span>.
+                ✅ <span class="bad">Less Phone Time</span>.
+                ✅ <span class="good">L-Theanine</span> before bed.
+            </p>
+        </div>
+
+        <div class="guide-card card-green" onclick="toggleGuide('g10')">
+            <span class="neon-text">🦋 Thyroid Optimization</span>
+            <span>▼</span>
+        </div>
+        <div id="g10" class="guide-content">
+            <p class="guide-text">
+                ✅ Watch <span class="good">Sunrise/Sunset</span>.
+                ✅ <span class="important">Iodine, Tyrosine, Selenium</span>.
+                ✅ Keep <span class="bad">Cortisol Low</span>.
+                ✅ <span class="important">Iron & Zinc</span>.
+            </p>
+        </div>
+
+        <div class="cta-box">
+            <h3 class="neon-text">1-on-1 Coaching</h3>
+            <p>Custom hormone and nutrition protocols.</p>
+            <a href="https://www.tiktok.com/@mid_tier_endocrinologist?_r=1&_t=ZN-94g4p2BUi4k" class="cta-link">MESSAGE ME</a>
+        </div>
+    </div>
+
+    <div class="footer">© 2026 OPTIMIZATION HUB</div>
+
+    <script>
+        function toggleGuide(id) {
+            const element = document.getElementById(id);
+            const isVisible = (element.style.display === 'block');
+            
+            // Close all
+            document.querySelectorAll('.guide-content').forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            // Toggle
+            if (!isVisible) {
+                element.style.display = 'block';
+                // Small scroll adjust to ensure it's in view on small screens
+                element.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+    </script>
+</body>
+    </html>
         
