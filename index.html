@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Optimizer Hub | Protocols</title>
     <style>
         :root {
@@ -26,6 +26,7 @@
             flex-direction: column;
             align-items: center;
             padding: 20px;
+            min-height: 100vh;
         }
 
         .neon-text {
@@ -51,6 +52,8 @@
             justify-content: space-between;
             align-items: center;
             transition: 0.3s;
+            position: relative;
+            z-index: 10; /* Ensures card is on top for clicks */
         }
 
         .card-gold { border-color: var(--neon-gold); }
@@ -68,13 +71,10 @@
             border-radius: 0 0 12px 12px;
             border: 1px solid #444;
             border-top: none;
-            animation: fadeIn 0.3s ease;
+            z-index: 5;
         }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
-
         .guide-text { font-size: 1.05rem; line-height: 1.8; font-weight: 700; color: white; margin: 0; }
-
         .bad { color: var(--neon-red); text-shadow: 0 0 5px rgba(255, 62, 62, 0.4); }
         .good { color: var(--neon-green); text-shadow: 0 0 5px rgba(57, 255, 20, 0.3); }
         .important { color: var(--neon-gold); text-shadow: 0 0 5px rgba(255, 204, 0, 0.3); }
@@ -85,7 +85,6 @@
             border: 1px solid var(--neon-gold);
             background: rgba(255, 204, 0, 0.05);
             border-radius: 8px;
-            font-size: 0.95rem;
         }
 
         .cta-box {
@@ -107,11 +106,10 @@
             text-decoration: none;
             font-weight: 900;
             margin-top: 15px;
-            box-shadow: 0 0 15px white;
             text-transform: uppercase;
         }
 
-        .footer { margin: 60px 0; font-size: 0.75rem; color: #666; text-align: center; letter-spacing: 3px; font-weight: bold; }
+        .footer { margin: 60px 0; font-size: 0.75rem; color: #666; text-align: center; letter-spacing: 3px; }
     </style>
 </head>
 <body>
@@ -121,8 +119,7 @@
     </div>
 
     <div class="container">
-
-        <div class="guide-card card-green" onclick="toggleGuide('g1')">
+        <div class="guide-card card-green" data-target="g1">
             <span class="neon-text">🥗 Nutrition</span>
             <span>▼</span>
         </div>
@@ -135,7 +132,7 @@
             </p> 
         </div>
 
-        <div class="guide-card card-green" onclick="toggleGuide('g2')">
+        <div class="guide-card card-green" data-target="g2">
             <span class="neon-text">💤 Sleep & Recovery</span>
             <span>▼</span>
         </div>
@@ -148,7 +145,7 @@
             </p> 
         </div>
 
-        <div class="guide-card card-gold" onclick="toggleGuide('g3')">
+        <div class="guide-card card-gold" data-target="g3">
             <span class="neon-text">📏 Height</span>
             <span>▼</span>
         </div>
@@ -161,7 +158,7 @@
             </p>
         </div>
         
-        <div class="guide-card card-gold" onclick="toggleGuide('g4')">
+        <div class="guide-card card-gold" data-target="g4">
             <span class="neon-text">🦴 Bone Mass</span>
             <span>▼</span>
         </div>
@@ -174,7 +171,7 @@
             </p>
         </div>
 
-        <div class="guide-card card-gold" onclick="toggleGuide('g6')">
+        <div class="guide-card card-gold" data-target="g6">
             <span class="neon-text">📈 GH-IGF1</span>
             <span>▼</span>
         </div>
@@ -187,7 +184,7 @@
             </p>
         </div>
 
-        <div class="guide-card card-gold" onclick="toggleGuide('g7')">
+        <div class="guide-card card-gold" data-target="g7">
             <span class="neon-text">🔥 Test & DHT</span>
             <span>▼</span>
         </div>
@@ -204,7 +201,7 @@
             </p>
         </div>
 
-        <div class="guide-card card-green" onclick="toggleGuide('g8')">
+        <div class="guide-card card-green" data-target="g8">
             <span class="neon-text">🧬 Lowering SHBG</span>
             <span>▼</span>
         </div>
@@ -222,7 +219,7 @@
             </p>
         </div>
 
-        <div class="guide-card card-red" onclick="toggleGuide('g9')">
+        <div class="guide-card card-red" data-target="g9">
             <span class="neon-text">📉 Cortisol & Prolactin</span>
             <span>▼</span>
         </div>
@@ -235,7 +232,7 @@
             </p>
         </div>
 
-        <div class="guide-card card-green" onclick="toggleGuide('g10')">
+        <div class="guide-card card-green" data-target="g10">
             <span class="neon-text">🦋 Thyroid Optimization</span>
             <span>▼</span>
         </div>
@@ -258,23 +255,34 @@
     <div class="footer">© 2026 OPTIMIZATION HUB</div>
 
     <script>
-        function toggleGuide(id) {
-            const element = document.getElementById(id);
-            const isVisible = (element.style.display === 'block');
+        // Listen for both clicks and touches
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.guide-card');
             
-            // Close all
-            document.querySelectorAll('.guide-content').forEach(el => {
-                el.style.display = 'none';
+            cards.forEach(card => {
+                const handler = function(e) {
+                    const targetId = card.getAttribute('data-target');
+                    const targetEl = document.getElementById(targetId);
+                    const isVisible = targetEl.style.display === 'block';
+
+                    // Close all
+                    document.querySelectorAll('.guide-content').forEach(el => {
+                        el.style.display = 'none';
+                    });
+
+                    // Toggle
+                    if (!isVisible) {
+                        targetEl.style.display = 'block';
+                    }
+                };
+
+                card.addEventListener('click', handler);
+                card.addEventListener('touchend', function(e) {
+                    e.preventDefault(); // Prevents "double-tap" behavior on mobile
+                    handler(e);
+                });
             });
-            
-            // Toggle
-            if (!isVisible) {
-                element.style.display = 'block';
-                // Small scroll adjust to ensure it's in view on small screens
-                element.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }
-        }
+        });
     </script>
 </body>
-    </html>
-        
+            </html>
