@@ -1,321 +1,333 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Optimizer Hub | Protocols</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>guides for gains</title>
     <style>
         :root {
-            --bg-gray: #1a1a1a;
-            --neon-blue: #00d2ff;
-            --neon-red: #ff3e3e;
-            --neon-gold: #ffcc00;
-            --neon-green: #39ff14;
-            --text-white: #ffffff;
+            --primary: #5a6b5a;
+            --accent: #7a8a7a;
+            --bg: #1a1a1a;
+            --card-bg: #222222;
+            --text: #e0e0e0;
+            --sub-text: #a0a0a0;
         }
-
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         
+        * { box-sizing: border-box; }
         body { 
-            background-color: var(--bg-gray);
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 100 100'%3E%3Cg fill='none' stroke='rgba(255,255,255,0.08)' stroke-width='0.8'%3E%3Cpath d='M10 40 L20 35 L35 35 L45 40 L35 55 L20 55 Z'/%3E%3Cpath d='M45 40 L55 35 L70 35 L80 40 L70 55 L55 55 Z'/%3E%3Cpath d='M35 55 L45 65 L60 65 L70 55'/%3E%3Cpath d='M70 35 L75 25 L90 25 L95 35 L90 45 L75 45 Z'/%3E%3Ccircle cx='15' cy='35' r='1.5'/%3E%3Cpath d='M80 40 L85 40'/%3E%3C/g%3E%3C/svg%3E");
-            color: var(--text-white);
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto; 
+            background-color: var(--bg); 
+            color: var(--text); 
+            margin: 0; 
             display: flex; 
-            flex-direction: column;
-            align-items: center;
+            flex-direction: column; 
+            align-items: center; 
             padding: 20px;
-            min-height: 100vh;
+            line-height: 1.6;
         }
 
-        .neon-text {
-            font-weight: 900;
-            color: white;
-            text-shadow: 0 0 15px var(--neon-blue);
-            text-transform: uppercase;
-        }
+        .header { text-align: center; margin: 30px 0; max-width: 400px; }
+        .header h1 { font-size: 1.8rem; margin-bottom: 8px; color: var(--primary); letter-spacing: -0.5px; }
+        .header p { font-size: 1rem; color: var(--sub-text); margin: 0; }
 
-        .header { text-align: center; margin: 40px 0; }
-        .header h1 { font-size: 2.4rem; letter-spacing: 2px; margin: 0; }
-
-        .container { width: 100%; max-width: 440px; }
+        .container { width: 100%; max-width: 420px; }
 
         .guide-card {
-            background: rgba(0,0,0,0.85);
-            border: 2px solid #333;
-            border-radius: 12px;
-            padding: 22px;
-            margin-bottom: 15px;
+            background: var(--card-bg);
+            border: 1px solid #3a3a3a;
+            border-radius: 16px;
+            padding: 18px;
+            margin-bottom: 12px;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: 0.3s;
-            position: relative;
-            z-index: 10;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+            transition: all 0.2s ease;
         }
-
-        .card-gold { border-color: var(--neon-gold); }
-        .card-gold span { text-shadow: 0 0 12px var(--neon-gold); }
-        .card-red { border-color: var(--neon-red); }
-        .card-red span { text-shadow: 0 0 12px var(--neon-red); }
-        .card-green { border-color: var(--neon-green); }
-        .card-green span { text-shadow: 0 0 12px var(--neon-green); }
+        .guide-card:active { transform: scale(0.98); background: #2a2a2a; }
+        .guide-card span:first-child { font-weight: 600; font-size: 1.05rem; }
 
         .guide-content {
             display: none;
-            background: rgba(5, 5, 5, 0.98);
-            margin: -20px 10px 20px 10px;
-            padding: 25px;
-            border-radius: 0 0 12px 12px;
-            border: 1px solid #444;
+            background: #222222;
+            margin: -10px 5px 15px 5px;
+            padding: 20px;
+            border-bottom-left-radius: 16px;
+            border-bottom-right-radius: 16px;
+            border: 1px solid #3a3a3a;
             border-top: none;
-            z-index: 5;
+            animation: fadeIn 0.3s ease;
         }
 
-        .guide-text { font-size: 1.05rem; line-height: 1.8; font-weight: 700; color: white; margin: 0; white-space: pre-line; }
-        .bad { color: var(--neon-red); text-shadow: 0 0 5px rgba(255, 62, 62, 0.4); }
-        .good { color: var(--neon-green); text-shadow: 0 0 5px rgba(57, 255, 20, 0.3); }
-        .important { color: var(--neon-gold); text-shadow: 0 0 5px rgba(255, 204, 0, 0.3); }
-
-        .coffee-box {
-            margin-top: 20px;
-            padding: 15px;
-            border: 1px solid var(--neon-gold);
-            background: rgba(255, 204, 0, 0.05);
-            border-radius: 8px;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
         }
+
+        .guide-text { font-size: 0.95rem; color: #cccccc; white-space: pre-line; }
 
         .cta-box {
-            margin-top: 50px;
-            padding: 30px;
-            background: #000;
-            border: 2px solid var(--neon-blue);
-            border-radius: 15px;
+            margin-top: 40px;
+            padding: 25px;
+            background: var(--primary);
+            color: white;
+            border-radius: 20px;
             text-align: center;
-            box-shadow: 0 0 30px var(--neon-blue);
+            width: 100%;
         }
-
+        .cta-box h3 { margin-top: 0; font-size: 1.3rem; }
         .cta-link {
             display: inline-block;
-            background: white;
-            color: black;
-            padding: 16px 32px;
-            border-radius: 50px;
+            background: #e0e0e0;
+            color: #2a2a2a;
+            padding: 14px 28px;
+            border-radius: 30px;
             text-decoration: none;
-            font-weight: 900;
+            font-weight: bold;
             margin-top: 15px;
-            text-transform: uppercase;
         }
 
-        .footer { margin: 60px 0; font-size: 0.75rem; color: #666; text-align: center; letter-spacing: 3px; }
+        .footer { margin: 40px 0; font-size: 0.8rem; color: #5a5a5a; text-align: center; }
     </style>
 </head>
 <body>
 
     <div class="header">
-        <h1 class="neon-text">OPTIMIZER HUB 🧪</h1>
+        <h1>health optimization</h1>
+        <p>Expert protocols for your health journey</p>
     </div>
 
     <div class="container">
-        
-        <div class="guide-card card-green" data-target="g1">
-            <span class="neon-text">🥗 Nutrition Fundamentals</span>
-            <span>▼</span>
+
+        <div class="guide-card" onclick="toggleGuide('guide1')">
+            <span>🥗 Nutrition Fundamentals</span>
+            <span>↓</span>
         </div>
-        <div id="g1" class="guide-content">
+        <div id="guide1" class="guide-content">
             <p class="guide-text">
-                ✅ Focus on <span class="important">Whole-Food Fats</span> for hormone synthesis.
-                ✅ Include fermented foods (Kefir/Sauerkraut).
-                ✅ <span class="bad">Eliminate Seed Oils</span> and processed sugars.
-                ✅ Have a macro based balanced diet focus on micros enough nutrients.
-                ✅ Include in <span class="good">Root Vegetables</span>, fruits, meat, organs, <span class="important">Raw Dairy</span>, and animal fats only for cooking.
-                ✅ Time your foods, focus on quality.
+                <strong>Key Targets:</strong>
+                • Focus on whole-food fats for hormone synthesis.
+                • Include fermented foods (Kefir/Sauerkraut).
+                • Eliminate seed oils and processed sugars.
+                • have a macro based balanced diet focus on micros enough nutrients 
+                • include in root vegetables, fruits meat organs raw dairy animal fats only for cooking 
+                • time your foods focus on quality
             </p> 
         </div>
 
-        <div class="guide-card card-green" data-target="g2">
-            <span class="neon-text">💤 Sleep & Recovery</span>
-            <span>▼</span>
+        <div class="guide-card" onclick="toggleGuide('guide2')">
+            <span>💤 Sleep & Recovery</span>
+            <span>↓</span>
         </div>
-        <div id="g2" class="guide-content">
+        <div id="guide2" class="guide-content">
             <p class="guide-text">
-                ✅ Room temp below <span class="good">68°F (20°C)</span>.
-                ✅ <span class="important">Magnesium Glycinate</span> 30-60 mins before bed.
-                ✅ <span class="bad">No Blue Light</span> 1-2 hours before sleep.
-                ✅ <span class="bad">Avoid Light</span> for the last 2 hours, at most have a dim warm toned lamp.
-                ✅ Do some journaling/reading and stretching.
-                ✅ Consider in <span class="good">Glycine 3-5g</span> for better sleep quality.
+                <strong>Optimization:</strong>
+                • Room temp below 68°F (20°C).
+                • Magnesium Glycinate 30-60 mins before bed.
+                • No blue light 1-2 hours before sleep.
+                • avoid light for the last 2 hours at most have a dim warm toned lamp
+                • do some journaling/reading and stretching 
+                • consider in glycine 3-5g for better sleep quality
             </p> 
         </div>
 
-        <div class="guide-card card-gold" data-target="g3">
-            <span class="neon-text">📏 Height Optimization</span>
-            <span>▼</span>
+        <div class="guide-card" onclick="toggleGuide('guide3')">
+            <span>📏 Height Optimization</span>
+            <span>↓</span>
         </div>
-        <div id="g3" class="guide-content">
+        <div id="guide3" class="guide-content">
             <p class="guide-text">
-                ✅ <span class="important">Heavy Compounds</span>, explosive movements, HIIT Sprints.
-                ✅ Nutrient dense foods, collagen and vit C.
-                ✅ <span class="good">Zinc, Mg, K2</span>, phosphorus, calcium, vit D, boron, B Vitamins.
-                ✅ Getting carbs in around workouts, getting enough <span class="important">Leucine</span> (whey, dairy, meat).
-                ✅ A lot of <span class="important">Raw Dairy</span> cheese, colostrum, milk kefir, Quark etc.
-                ✅ Enough macros: generally 1g of each per lb of bw.
-                ✅ Optimizing <span class="good">Sleep</span> to absolute maximum capacity.
-                ✅ Optimizing other hormones: testosterone, DHT, balancing estrogen, thyroid.
+                <strong>Protocol:</strong>
+                • heavy compounds, explosive movements HIIT Sprints 
+                • nutrient dense foods collagen and vit C getting your micronutrients in
+                • zinc Mg k2 phosphorus calcium vit D boron b Vitamins 
+                • getting carbs in around workouts, getting enough leucine- whey dairy meat
+                • a lot of raw dairy cheese, colostrum milk kefir Quark etc
+                • enough macros generally 1g of each per lb of bw more if your physical demands it 
+                • optimizing sleep to absolute maximum capacity 
+                • optimizing other hormones testosterone DHT balancing estrogen thyroid hormones
+                • prolactin cortisol
             </p>
         </div>
         
-        <div class="guide-card card-gold" data-target="g4">
-            <span class="neon-text">🦴 Bone Mass</span>
-            <span>▼</span>
+        <div class="guide-card" onclick="toggleGuide('guide4')">
+            <span>🦴 Bone Mass</span>
+            <span>↓</span>
         </div>
-        <div id="g4" class="guide-content">
+        <div id="guide4" class="guide-content">
             <p class="guide-text">
-                ✅ Optimizing hormones like <span class="important">GH, IGF1</span>, testosterone, DHT.
-                ✅ Focus on <span class="good">Sleep</span>, diet micronutrient rich foods like liver, old raw cheese, oysters, meat.
-                ✅ Getting a lot of macros in (1g of each per lb of bw).
-                ✅ <span class="important">Sprints</span>, heavy lifts, explosive movements.
-                ✅ <span class="important">Raw Dairy</span> ofc.
-                ✅ Bone growth formula: <span class="good">Raw Beetroot Juice</span> (Wait 30 mins).
-                ✅ Explosive Movements (Jumps/Sprints).
-                ✅ <span class="important">Isometric Jaw Clench</span>.
-                ✅ Humming "MMM" (60 seconds) & <span class="good">2Hz Bone Tapping</span>.
-                ✅ Old Aged Raw Cheese, Raisins/Prunes.
-                ✅ <span class="important">Sheep Kefir + Raw Honey + Whey Shake</span>.
-                ✅ Sweet or Regular Potatoes.
-                ✅ Ice Water Face-Dunk (60 seconds).
+                <strong>Protocol:</strong>
+                • optimizing hormones like GH igf1 testosterone DHT estrogen thyroid hormones etc
+                • focusing on sleep, diet micronutrient rich foods like liver old raw cheese oysters meat
+                • getting a lot of macros in 1g of each per lb of bw
+                • sprints heavy lifts explosive movements 
+                • raw dairy ofc
+                • a bone growth formula-Raw Beetroot Juice (Wait 30 mins)
+                • Explosive Movements (Jumps/Sprints)
+                • Isometric Jaw Clench
+                • humming "MMM" (60 seconds)
+                • 2Hz Bone Tapping (Simultaneous with humming)
+                • Old Aged Raw Cheese
+                • Raisins/Prunes
+                • Sheep Kefir + Raw Honey + Whey Shake
+                • Sweet or Regular Potatoes
+                • Ice Water Face-Dunk (60 seconds)
+                • lactoferrin supplementation 1-4g / from colostrum
+            </p>
+        </div>
+            
+        <div class="guide-card" onclick="toggleGuide('guide5')">
+            <span>💊 Supplement Timing</span>
+            <span>↓</span>
+        </div>
+        <div id="guide5" class="guide-content">
+            <p class="guide-text">
+                <strong>Timing & Pairing:</strong>
+                • vitamin D, morning with fats K2 calcium and boron
+                • and b vitamins, for midday omega 3s- fats and iron and collagen, pair with vitamin C
+                • at night magnesium, glycine L citrulline/L arginine 
+                • zinc (not before bed or close to magnesium)
+                • fat soluble vitamins A,D,E,K -pair with fats 
+                • keep out magnesium iron calcium zinc away from each other by 3-4 hours 
+                • always pair iron and collagen with vitamin C
+                • make sure to get copper along with zinc as they deplete each other
             </p>
         </div>
 
-        <div class="guide-card card-green" data-target="g5">
-            <span class="neon-text">💊 Supplement Timing</span>
-            <span>▼</span>
+        <div class="guide-card" onclick="toggleGuide('guide6')">
+            <span>📈 GH-IGF1 Optimization</span>
+            <span>↓</span>
         </div>
-        <div id="g5" class="guide-content">
+        <div id="guide6" class="guide-content">
             <p class="guide-text">
-                ✅ <span class="important">Vitamin D</span>, morning with fats, K2, calcium, and boron.
-                ✅ B vitamins, for midday <span class="good">Omega 3s</span>, fats, iron, and collagen (pair with Vit C).
-                ✅ At night <span class="important">Magnesium</span>, glycine, L-citrulline/L-arginine.
-                ✅ <span class="bad">Zinc</span> (not before bed or close to magnesium).
-                ✅ Fat soluble vitamins A,D,E,K - pair with fats.
-                ✅ Keep <span class="bad">Magnesium, Iron, Calcium, Zinc</span> away from each other by 3-4 hours.
-                ✅ Make sure to get copper along with zinc as they deplete each other.
+                <strong>conclude in</strong> 
+                sleep 
+                excersice 
+                protein and carb focused diet
+                enough micronutrients and macros
+                nutrient dense foods
+                raw dairy 
+                plyometrics 
+                L citrulline Alpha gpc l arginine before bed
+                optimizing dopamine levels via being in nature less on phone and optimize testosterone and DHT levels 
+                and lastly balancing other hormones such as estrogen/estradiol t3,4 prolactin Cortisol
             </p>
         </div>
 
-        <div class="guide-card card-gold" data-target="g6">
-            <span class="neon-text">📈 GH-IGF1 Optimization</span>
-            <span>▼</span>
+        <div class="guide-card" onclick="toggleGuide('guide7')">
+            <span>🔥 Testosterone & DHT</span>
+            <span>↓</span>
         </div>
-        <div id="g6" class="guide-content">
+        <div id="guide7" class="guide-content">
             <p class="guide-text">
-                ✅ <span class="good">Sleep</span> and exercise.
-                ✅ Protein and carb focused diet.
-                ✅ Nutrient dense foods and <span class="important">Raw Dairy</span>.
-                ✅ <span class="important">Plyometrics</span>.
-                ✅ <span class="important">L-Citrulline, Alpha GPC, L-Arginine</span> before bed.
-                ✅ Optimizing dopamine levels via nature, <span class="bad">Less Phone</span>, and optimize testosterone/DHT.
-                ✅ Balancing <span class="bad">Estrogen, Prolactin, Cortisol</span>.
+                <strong>conclude in</strong>
+                high quality sleep
+                heavy compounds and explosive movements 
+                high fat/cholesterol focused diet 
+                micros -
+                boron
+                mG
+                zinc
+                vitD
+                L carnitine tartrate 
+                B Vitamins 1-12
+                be in the sun 24/7
+                avoid fapping and watching porn
+                manage your Cortisol and prolactin levels 
+                adapt a masculine and confident mindset and behavior
             </p>
         </div>
 
-        <div class="guide-card card-gold" data-target="g7">
-            <span class="neon-text">🔥 Testosterone & DHT</span>
-            <span>▼</span>
+        <div class="guide-card" onclick="toggleGuide('guide8')">
+            <span>🧬 Lowering SHBG</span>
+            <span>↓</span>
         </div>
-        <div id="g7" class="guide-content">
+        <div id="guide8" class="guide-content">
             <p class="guide-text">
-                ✅ High quality <span class="good">Sleep</span>.
-                ✅ <span class="important">Heavy Compounds</span> and explosive movements.
-                ✅ High <span class="important">Fat/Cholesterol</span> focused diet.
-                ✅ Micros: <span class="good">Boron, Mg, Zinc, Vit D</span>, L-carnitine tartrate, B Vitamins.
-                ✅ Be in the <span class="good">Sun 24/7</span>.
-                ✅ <span class="bad">Avoid Fapping and Porn</span>.
-                ✅ Manage your <span class="bad">Cortisol and Prolactin</span> levels.
-                ✅ Adapt a masculine and confident mindset and behavior.
-                <div class="coffee-box">
-                    <strong class="important">☕ ANABOLIC COFFEE:</strong><br>
-                    1.5tsp sugar, bit of honey, cinnamon powder, 40ml milk, pinch of salt, thick tsp of butter and coco oil. 
-                    <span class="good">Drink 90-120 minutes after waking up, avoid past 2pm.</span>
-                </div>
+                <strong>conclude in</strong>
+                stress Management 
+                high macro based diet (high protein fats carbs 1-1.5g of each per lb of bw)
+                micronutrients
+                boron
+                magnesium 
+                zinc 
+                vit D
+                and crucial one, taking care of your liver health 
+                consider in cooked cruciferous vegetables few times per week
             </p>
         </div>
 
-        <div class="guide-card card-green" data-target="g8">
-            <span class="neon-text">🧬 Lowering SHBG</span>
-            <span>▼</span>
+        <div class="guide-card" onclick="toggleGuide('guide9')">
+            <span>📉 Cortisol & Prolactin</span>
+            <span>↓</span>
         </div>
-        <div id="g8" class="guide-content">
+        <div id="guide9" class="guide-content">
             <p class="guide-text">
-                ✅ <span class="good">Stress Management</span>.
-                ✅ High macro based diet (1-1.5g of each per lb of bw).
-                ✅ Micronutrients: <span class="good">Boron, Magnesium, Zinc, Vit D</span>.
-                ✅ Taking care of your <span class="important">Liver Health</span>.
-                ✅ Consider in cooked <span class="good">Cruciferous Vegetables</span>.
-                <div class="coffee-box">
-                    <strong class="important">☕ ANABOLIC COFFEE:</strong><br>
-                    1.5tsp sugar, honey, cinnamon, 40ml milk, salt, butter and coco oil. 
-                    <span class="good">Drink 90-120 minutes after waking up.</span>
-                </div>
+                <strong>conclude in</strong>
+                synchronizing circadian rhythm high quality 8-10 hrs sleep
+                vit b6 p5p version 
+                vit C 
+                zinc
+                Mg
+                being in nature 
+                cold exposure here and there
+                excericising 
+                less time on phone 
+                no fapping or watching porn
+                additionally conclude in L theanine before bed/in the evening
             </p>
         </div>
 
-        <div class="guide-card card-red" data-target="g9">
-            <span class="neon-text">📉 Cortisol & Prolactin</span>
-            <span>▼</span>
+        <div class="guide-card" onclick="toggleGuide('guide10')">
+            <span>🦋 Thyroid Optimization</span>
+            <span>↓</span>
         </div>
-        <div id="g9" class="guide-content">
+        <div id="guide10" class="guide-content">
             <p class="guide-text">
-                ✅ Synchronizing circadian rhythm, <span class="good">8-10 hrs sleep</span>.
-                ✅ <span class="important">Vit B6 (P5P version)</span>, Vit C, Zinc, Mg.
-                ✅ Being in <span class="good">Nature</span> and cold exposure.
-                ✅ <span class="bad">Less Phone Time</span>.
-                ✅ <span class="bad">No Fapping or Watching Porn</span>.
-                ✅ Additionally conclude in <span class="good">L-Theanine</span> before bed.
+                <strong>conclude in</strong> 
+                focusing on sleep
+                optimal serotonin levels (watching sunset and sunrise, dark chocolate chicken greek yogurt eggs)
+                keeping Cortisol low
+                optimal carb and protein intake
+                micros 
+                iodine 
+                tyrosine 
+                vit A
+                vit D
+                Mg
+                zinc
+                iron
+                selenium
             </p>
         </div>
-
-        <div class="guide-card card-green" data-target="g10">
-            <span class="neon-text">🦋 Thyroid Optimization</span>
-            <span>▼</span>
-        </div>
-        <div id="g10" class="guide-content">
-            <p class="guide-text">
-                ✅ Focusing on <span class="good">Sleep</span>.
-                ✅ Optimal <span class="good">Serotonin Levels</span> (sunset/sunrise, dark chocolate, chicken, eggs).
-                ✅ Keeping <span class="bad">Cortisol Low</span>.
-                ✅ Optimal carb and protein intake.
-                ✅ Micros: <span class="good">Iodine, Tyrosine, Vit A, Vit D, Mg, Zinc, Iron, Selenium</span>.
-            </p>
-        </div>
-
+         
         <div class="cta-box">
-            <h3 class="neon-text">Ready for 1-on-1 Coaching?</h3>
+            <h3>dm me for a personal protocol</h3>
             <p>I'll help you build a personalized protocol.</p>
-            <a href="https://www.tiktok.com/@mid_tier_endocrinologist?_r=1&_t=ZN-94g4p2BUi4k" class="cta-link">MESSAGE ME</a>
+            <a href="https://www.tiktok.com/@mid_tier_endocrinologist?_r=1&_t=ZN-94g4p2BUi4k" class="cta-link">Send me a message</a>
         </div>
     </div>
 
-    <div class="footer">© 2026 OPTIMIZATION HUB</div>
+    <div class="footer">© 2026 Optimization Protocol</div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.guide-card');
-            cards.forEach(card => {
-                const handler = function(e) {
-                    const targetId = card.getAttribute('data-target');
-                    const targetEl = document.getElementById(targetId);
-                    const isVisible = targetEl.style.display === 'block';
-                    document.querySelectorAll('.guide-content').forEach(el => el.style.display = 'none');
-                    if (!isVisible) targetEl.style.display = 'block';
-                };
-                card.addEventListener('click', handler);
-                card.addEventListener('touchend', function(e) { e.preventDefault(); handler(e); });
+        function toggleGuide(id) {
+            const element = document.getElementById(id);
+            if (!element) return;
+            
+            const isVisible = element.style.display === 'block';
+            
+            document.querySelectorAll('.guide-content').forEach(el => {
+                el.style.display = 'none';
             });
-        });
+            
+            element.style.display = isVisible ? 'none' : 'block';
+        }
     </script>
+
 </body>
-                                             </html>
-                      
+</html>
+```
