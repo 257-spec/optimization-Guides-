@@ -1,18 +1,18 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>guides for gains</title>
+    <title>guides for gains | blackout protocol</title>
     <style>
         :root {
-            --primary: #5a6b5a;
-            --accent: #7a8a7a;
-            --bg: #1a1a1a;
-            --card-bg: #222222;
-            --text: #e0e0e0;
-            --sub-text: #a0a0a0;
+            --primary: #5e7c5e;
+            --accent: #7c9a7c;
+            --bg: #000000;      /* pure black background */
+            --card-bg: #0c0c0c;
+            --text: #eaeaea;
+            --sub-text: #a3a3a3;
+            --border: #1f1f1f;
         }
         
         * { box-sizing: border-box; }
@@ -36,7 +36,7 @@
 
         .guide-card {
             background: var(--card-bg);
-            border: 1px solid #3a3a3a;
+            border: 1px solid var(--border);
             border-radius: 16px;
             padding: 18px;
             margin-bottom: 12px;
@@ -44,20 +44,20 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.6);
             transition: all 0.2s ease;
         }
-        .guide-card:active { transform: scale(0.98); background: #2a2a2a; }
+        .guide-card:active { transform: scale(0.98); background: #141414; }
         .guide-card span:first-child { font-weight: 600; font-size: 1.05rem; }
 
         .guide-content {
             display: none;
-            background: #222222;
+            background: #0c0c0c;
             margin: -10px 5px 15px 5px;
             padding: 20px;
             border-bottom-left-radius: 16px;
             border-bottom-right-radius: 16px;
-            border: 1px solid #3a3a3a;
+            border: 1px solid var(--border);
             border-top: none;
             animation: fadeIn 0.3s ease;
         }
@@ -67,22 +67,22 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .guide-text { font-size: 0.95rem; color: #cccccc; white-space: pre-line; }
+        .guide-text { font-size: 0.95rem; color: #cccccc; white-space: pre-line; line-height: 1.5; }
 
         .cta-box {
             margin-top: 40px;
             padding: 25px;
             background: var(--primary);
-            color: white;
+            color: #000000;
             border-radius: 20px;
             text-align: center;
             width: 100%;
         }
-        .cta-box h3 { margin-top: 0; font-size: 1.3rem; }
+        .cta-box h3 { margin-top: 0; font-size: 1.3rem; color: #000; }
         .cta-link {
             display: inline-block;
             background: #e0e0e0;
-            color: #2a2a2a;
+            color: #0a0a0a;
             padding: 14px 28px;
             border-radius: 30px;
             text-decoration: none;
@@ -90,228 +90,224 @@
             margin-top: 15px;
         }
 
-        .footer { margin: 40px 0; font-size: 0.8rem; color: #5a5a5a; text-align: center; }
+        .footer { margin: 40px 0; font-size: 0.8rem; color: #3a3a3a; text-align: center; }
     </style>
 </head>
 <body>
 
     <div class="header">
-        <h1>health optimization</h1>
-        <p>Expert protocols for your health journey</p>
+        <h1>blackout protocol</h1>
+        <p>direct frameworks for your health journey</p>
     </div>
 
     <div class="container">
 
         <div class="guide-card" onclick="toggleGuide('guide1')">
-            <span>🥗 Nutrition Fundamentals</span>
+            <span>🥩 nutrition fundamentals</span>
             <span>↓</span>
         </div>
         <div id="guide1" class="guide-content">
             <p class="guide-text">
-                <strong>Key Targets:</strong>
-                • Focus on whole-food fats for hormone synthesis.
-                • Include fermented foods (Kefir/Sauerkraut).
-                • Eliminate seed oils and processed sugars.
-                • have a macro based balanced diet focus on micros enough nutrients 
-                • include in root vegetables, fruits meat organs raw dairy animal fats only for cooking 
-                • time your foods focus on quality
+                <strong>key targets:</strong>
+                • whole-food fats for hormone synthesis.
+                • fermented foods (kefir/sauerkraut).
+                • eliminate/avoid seed oils & processed sugars.
+                • macro balanced diet / micros enough nutrients.
+                • root vegetables, fruits, meat, organs, raw dairy / animal fats for cooking.
+                • food timing prioritized / quality focus.
             </p> 
         </div>
 
         <div class="guide-card" onclick="toggleGuide('guide2')">
-            <span>💤 Sleep & Recovery</span>
+            <span>💤 sleep & recovery</span>
             <span>↓</span>
         </div>
         <div id="guide2" class="guide-content">
             <p class="guide-text">
-                <strong>Optimization:</strong>
-                • Room temp below 68°F (20°C).
-                • Magnesium Glycinate 30-60 mins before bed.
-                • No blue light 1-2 hours before sleep.
-                • avoid light for the last 2 hours at most have a dim warm toned lamp
-                • do some journaling/reading and stretching 
-                • consider in glycine 3-5g for better sleep quality
+                <strong>optimization:</strong>
+                • room temp below 68°f (20°c).
+                • magnesium glycinate 30-60 mins before bed.
+                • no blue light 1-2 hours before sleep.
+                • last 2 hours: dim warm-toned lamp only.
+                • journaling/reading and stretching.
+                • glycine 3-5g for better sleep quality.
             </p> 
         </div>
 
         <div class="guide-card" onclick="toggleGuide('guide3')">
-            <span>📏 Height Optimization</span>
+            <span>📏 height optimization</span>
             <span>↓</span>
         </div>
         <div id="guide3" class="guide-content">
             <p class="guide-text">
-                <strong>Protocol:</strong>
-                • heavy compounds, explosive movements HIIT Sprints 
-                • nutrient dense foods collagen and vit C getting your micronutrients in
-                • zinc Mg k2 phosphorus calcium vit D boron b Vitamins 
-                • getting carbs in around workouts, getting enough leucine- whey dairy meat
-                • a lot of raw dairy cheese, colostrum milk kefir Quark etc
-                • enough macros generally 1g of each per lb of bw more if your physical demands it 
-                • optimizing sleep to absolute maximum capacity 
-                • optimizing other hormones testosterone DHT balancing estrogen thyroid hormones
-                • prolactin cortisol
+                <strong>protocol:</strong>
+                • heavy compounds / explosive movements + HIIT sprints.
+                • nutrient-dense foods / collagen + vit C / micronutrients.
+                • zinc, mg, k2, phosphorus, calcium, vit D, boron, b vitamins.
+                • carbs around workouts / enough leucine (whey, dairy, meat).
+                • raw dairy, cheese, colostrum, milk kefir, quark.
+                • enough macros: 1g per lb of bw (more if physical demands).
+                • sleep maximized to absolute capacity.
+                • hormone optimization: testosterone, DHT, estrogen, thyroid, prolactin, cortisol.
             </p>
         </div>
         
         <div class="guide-card" onclick="toggleGuide('guide4')">
-            <span>🦴 Bone Mass</span>
+            <span>🦴 bone mass</span>
             <span>↓</span>
         </div>
         <div id="guide4" class="guide-content">
             <p class="guide-text">
-                <strong>Protocol:</strong>
-                • optimizing hormones like GH igf1 testosterone DHT estrogen thyroid hormones etc
-                • focusing on sleep, diet micronutrient rich foods like liver old raw cheese oysters meat
-                • getting a lot of macros in 1g of each per lb of bw
-                • sprints heavy lifts explosive movements 
-                • raw dairy ofc
-                • a bone growth formula-Raw Beetroot Juice (Wait 30 mins)
-                • Explosive Movements (Jumps/Sprints)
-                • Isometric Jaw Clench
-                • humming "MMM" (60 seconds)
-                • 2Hz Bone Tapping (Simultaneous with humming)
-                • Old Aged Raw Cheese
-                • Raisins/Prunes
-                • Sheep Kefir + Raw Honey + Whey Shake
-                • Sweet or Regular Potatoes
-                • Ice Water Face-Dunk (60 seconds)
-                • lactoferrin supplementation 1-4g / from colostrum
+                <strong>protocol:</strong>
+                • hormone optimization: GH, igf1, testosterone, DHT, estrogen, thyroid.
+                • sleep focus / diet micronutrient-rich (liver, raw cheese, oysters, meat).
+                • macros: 1g of each per lb of bw.
+                • sprints / heavy lifts / explosive movements.
+                • raw dairy.
+                • explosive movements (jumps/sprints).
+                • old aged raw cheese.
+                • lactoferrin 1-4g / from colostrum.
             </p>
         </div>
             
         <div class="guide-card" onclick="toggleGuide('guide5')">
-            <span>💊 Supplement Timing</span>
+            <span>💊 supplement timing</span>
             <span>↓</span>
         </div>
         <div id="guide5" class="guide-content">
             <p class="guide-text">
-                <strong>Timing & Pairing:</strong>
-                • vitamin D, morning with fats K2 calcium and boron
-                • and b vitamins, for midday omega 3s- fats and iron and collagen, pair with vitamin C
-                • at night magnesium, glycine L citrulline/L arginine 
-                • zinc (not before bed or close to magnesium)
-                • fat soluble vitamins A,D,E,K -pair with fats 
-                • keep out magnesium iron calcium zinc away from each other by 3-4 hours 
-                • always pair iron and collagen with vitamin C
-                • make sure to get copper along with zinc as they deplete each other
+                <strong>timing & pairing:</strong>
+                • vitamin D morning with fats / K2 + calcium + boron.
+                • b vitamins midday / omega-3s with fats / iron + collagen paired with vitamin C.
+                • night: magnesium, glycine, l-citrulline, l-arginine.
+                • zinc (not before bed or close to magnesium).
+                • fat-soluble vitamins A,D,E,K paired with fats.
+                • keep magnesium, iron, calcium, zinc away from each other by 3-4 hours.
+                • iron + collagen always paired with vitamin C.
+                • copper alongside zinc as they deplete each other.
             </p>
         </div>
 
         <div class="guide-card" onclick="toggleGuide('guide6')">
-            <span>📈 GH-IGF1 Optimization</span>
+            <span>📈 gh-igf1 optimization</span>
             <span>↓</span>
         </div>
         <div id="guide6" class="guide-content">
             <p class="guide-text">
-                <strong>conclude in</strong> 
-                sleep 
-                excersice 
-                protein and carb focused diet
-                enough micronutrients and macros
-                nutrient dense foods
-                raw dairy 
-                plyometrics 
-                L citrulline Alpha gpc l arginine before bed
-                optimizing dopamine levels via being in nature less on phone and optimize testosterone and DHT levels 
-                and lastly balancing other hormones such as estrogen/estradiol t3,4 prolactin Cortisol
+                <strong>conclude in:</strong><br>
+                • sleep<br>
+                • exercise<br>
+                • protein & carb focused diet<br>
+                • enough micronutrients & macros<br>
+                • nutrient-dense foods<br>
+                • raw dairy<br>
+                • plyometrics<br>
+                • l-citrulline, alpha-gpc, l-arginine before bed<br>
+                • dairy and collagen/glycine before bed<br>
+                • dopamine optimization via nature & less screen time<br>
+                • testosterone + DHT optimization<br>
+                • balance estrogen/estradiol, t3,t4, prolactin, cortisol
             </p>
         </div>
 
         <div class="guide-card" onclick="toggleGuide('guide7')">
-            <span>🔥 Testosterone & DHT</span>
+            <span>🔥 testosterone & dht</span>
             <span>↓</span>
         </div>
         <div id="guide7" class="guide-content">
             <p class="guide-text">
-                <strong>conclude in</strong>
-                high quality sleep
-                heavy compounds and explosive movements 
-                high fat/cholesterol focused diet 
-                micros -
-                boron
-                mG
-                zinc
-                vitD
-                L carnitine tartrate 
-                B Vitamins 1-12
-                be in the sun 24/7
-                avoid fapping and watching porn
-                manage your Cortisol and prolactin levels 
-                adapt a masculine and confident mindset and behavior
+                <strong>conclude in:</strong>
+                high-quality sleep /
+                heavy compounds & explosive movements /
+                high fat/cholesterol focused diet /
+                micros: boron, mg, zinc, vit D, l-carnitine tartrate, b vitamins 1-12 /
+                no fapping & no porn /
+                manage cortisol & prolactin /
+                masculine & confident mindset /
+                bulletproof coffee /
+                regular sun exposure morning and noon
             </p>
         </div>
 
         <div class="guide-card" onclick="toggleGuide('guide8')">
-            <span>🧬 Lowering SHBG</span>
+            <span>🧬 lowering shbg</span>
             <span>↓</span>
         </div>
         <div id="guide8" class="guide-content">
             <p class="guide-text">
-                <strong>conclude in</strong>
-                stress Management 
-                high macro based diet (high protein fats carbs 1-1.5g of each per lb of bw)
-                micronutrients
-                boron
-                magnesium 
-                zinc 
-                vit D
-                and crucial one, taking care of your liver health 
-                consider in cooked cruciferous vegetables few times per week
+                <strong>conclude in:</strong><br>
+                boron<br>
+                magnesium<br>
+                vitamin D<br>
+                zinc<br>
+                focus on insulin signalling<br>
+                don't neglect carbs
             </p>
         </div>
 
         <div class="guide-card" onclick="toggleGuide('guide9')">
-            <span>📉 Cortisol & Prolactin</span>
+            <span>📉 cortisol & prolactin</span>
             <span>↓</span>
         </div>
         <div id="guide9" class="guide-content">
             <p class="guide-text">
-                <strong>conclude in</strong>
-                synchronizing circadian rhythm high quality 8-10 hrs sleep
-                vit b6 p5p version 
-                vit C 
-                zinc
-                Mg
-                being in nature 
-                cold exposure here and there
-                excericising 
-                less time on phone 
-                no fapping or watching porn
-                additionally conclude in L theanine before bed/in the evening
+                <strong>conclude in:</strong>
+                synchronizing circadian rhythm / high-quality 8-10 hrs sleep /
+                vitamin b6 p5p /
+                vitamin C /
+                zinc /
+                mg /
+                nature exposure /
+                cold exposure here and there /
+                exercising /
+                less phone time /
+                no fapping or porn /
+                l-theanine before bed / evening.
             </p>
         </div>
 
         <div class="guide-card" onclick="toggleGuide('guide10')">
-            <span>🦋 Thyroid Optimization</span>
+            <span>🦋 thyroid optimization</span>
             <span>↓</span>
         </div>
         <div id="guide10" class="guide-content">
             <p class="guide-text">
-                <strong>conclude in</strong> 
-                focusing on sleep
-                optimal serotonin levels (watching sunset and sunrise, dark chocolate chicken greek yogurt eggs)
-                keeping Cortisol low
-                optimal carb and protein intake
-                micros 
-                iodine 
-                tyrosine 
-                vit A
-                vit D
-                Mg
-                zinc
-                iron
-                selenium
+                <strong>conclude in:</strong> 
+                sleep focus /
+                optimal serotonin (sunset/sunrise, dark chocolate, chicken, greek yogurt, eggs) /
+                low cortisol /
+                optimal carb & protein intake /
+                micros: iodine, tyrosine, vit A, vit D, mg, zinc, iron, selenium.
             </p>
         </div>
-         
+
+        <!-- NEW SECTION: Recovery Optimization -->
+        <div class="guide-card" onclick="toggleGuide('guide11')">
+            <span>♻️ recovery optimization</span>
+            <span>↓</span>
+        </div>
+        <div id="guide11" class="guide-content">
+            <p class="guide-text">
+                <strong>protocol:</strong><br>
+                • 8-10 hours of high sleep quality<br>
+                • glycine + dairy before bed<br>
+                • sun exposure morning and sunset<br>
+                • creatine 5-10g<br>
+                • short daily walks<br>
+                • stretching<br>
+                • bone broth<br>
+                • colostrum
+            </p>
+        </div>
+
         <div class="cta-box">
             <h3>dm me for a personal protocol</h3>
-            <p>I'll help you build a personalized protocol.</p>
-            <a href="https://www.tiktok.com/@mid_tier_endocrinologist?_r=1&_t=ZN-94g4p2BUi4k" class="cta-link">Send me a message</a>
+            <p>custom framework built for you.</p>
+            <a href="https://www.tiktok.com/@mid_tier_endocrinologist?_r=1&_t=ZN-94g4p2BUi4k" class="cta-link">send a message</a>
         </div>
     </div>
 
-    <div class="footer">© 2026 Optimization Protocol</div>
+    <div class="footer">© 2026 blackout protocols</div>
 
     <script>
         function toggleGuide(id) {
@@ -329,5 +325,4 @@
     </script>
 
 </body>
-</html>
-```
+    </html>
