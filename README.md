@@ -308,10 +308,34 @@
         </div>
 
         <div class="guide-card" onclick="toggleGuide('guide8')">
-            <span>🧬 Lowering SHBG</span>
+            <span>🧬 Lowering Aromatase-E2</span>
             <span>↓</span>
         </div>
         <div id="guide8" class="guide-content">
+            <p class="guide-text">
+                <strong>Protocol:</strong>
+                15-30mg Zinc Balanced with 1-2mg copper 
+                5-10 thousand UI vitamin D3
+                400mg magnesium, malate or glycinate 
+                Raw carrots 
+                Fiber intake 
+                Coffee/caffeine 150-200mg unless sensitive 
+                Low dose nicotine pills (highly addictive, beware)
+                Losing fat
+                Increasing DHT and supporting 5AR 
+                Avoid soy, flaxseeds DHT blockers, endocrine disruptors
+                Manage cortisol, 
+                Maintain regular exercise 
+                Steamed cruciferous vegs or DIM supplement 
+                avoid conventional dairy
+            </p>
+        </div>
+
+        <div class="guide-card" onclick="toggleGuide('guide9')">
+            <span>🧬 Lowering SHBG</span>
+            <span>↓</span>
+        </div>
+        <div id="guide9" class="guide-content">
             <p class="guide-text">
                 <strong>conclude in</strong>
                 stress Management 
@@ -326,11 +350,11 @@
             </p>
         </div>
 
-        <div class="guide-card" onclick="toggleGuide('guide9')">
+        <div class="guide-card" onclick="toggleGuide('guide10')">
             <span>📉 Cortisol & Prolactin</span>
             <span>↓</span>
         </div>
-        <div id="guide9" class="guide-content">
+        <div id="guide10" class="guide-content">
             <p class="guide-text">
                 <strong>conclude in</strong>
                 synchronizing circadian rhythm high quality 8-10 hrs sleep
@@ -347,11 +371,11 @@
             </p>
         </div>
 
-        <div class="guide-card" onclick="toggleGuide('guide10')">
+        <div class="guide-card" onclick="toggleGuide('guide11')">
             <span>🦋 Thyroid Optimization</span>
             <span>↓</span>
         </div>
-        <div id="guide10" class="guide-content">
+        <div id="guide11" class="guide-content">
             <p class="guide-text">
                 <strong>conclude in</strong> 
                 focusing on sleep
