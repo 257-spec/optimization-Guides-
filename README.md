@@ -233,15 +233,9 @@
                 • sprints heavy lifts explosive movements 
                 • raw dairy ofc
                 • a bone growth formula-Raw Beetroot Juice (Wait 30 mins)
-                • Explosive Movements (Jumps/Sprints)
-                • Isometric Jaw Clench
-                • humming "MMM" (60 seconds)
-                • 2Hz Bone Tapping (Simultaneous with humming)
-                • Old Aged Raw Cheese
-                • Raisins/Prunes
-                • Sheep Kefir + Raw Honey + Whey Shake
+                • Explosive Movements (Jumps/Sprints)y + Whey Shake
                 • Sweet or Regular Potatoes
-                • Ice Water Face-Dunk (60 seconds)
+             seconds)
             </p>
         </div>
             
