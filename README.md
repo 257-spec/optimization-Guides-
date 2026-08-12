@@ -25,51 +25,6 @@
             align-items: center; 
             padding: 20px;
             line-height: 1.6;
-            position: relative;
-            min-height: 100vh;
-        }
-
-        /* === PYRAMID BACKGROUND === */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 90%;
-            max-width: 700px;
-            height: 90%;
-            max-height: 700px;
-            z-index: 0;
-            opacity: 0.08;
-            pointer-events: none;
-            background: radial-gradient(ellipse at center, transparent 30%, rgba(78, 125, 72, 0.05) 70%);
-        }
-
-        .pyramid-bg {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 0;
-            opacity: 0.10;
-            font-family: 'Courier New', monospace;
-            text-align: center;
-            line-height: 1.7;
-            color: #81b37a;
-            font-size: clamp(10px, 1.8vw, 18px);
-            white-space: pre;
-            pointer-events: none;
-            user-select: none;
-            letter-spacing: 0.5px;
-            text-shadow: 0 0 30px rgba(78, 125, 72, 0.15);
-            width: 100%;
-        }
-
-        /* Keep content above background */
-        .header, .container, .cta-box, .footer {
-            position: relative;
-            z-index: 1;
         }
 
         .header { text-align: center; margin: 30px 0; max-width: 400px; }
@@ -90,15 +45,13 @@
             align-items: center;
             box-shadow: 0 4px 6px rgba(0,0,0,0.3);
             transition: all 0.2s ease;
-            backdrop-filter: blur(2px);
-            background: rgba(30, 30, 30, 0.92);
         }
         .guide-card:active { transform: scale(0.98); background: #252525; }
         .guide-card span:first-child { font-weight: 600; font-size: 1.05rem; }
 
         .guide-content {
             display: none;
-            background: rgba(30, 30, 30, 0.95);
+            background: #1e1e1e;
             margin: -10px 5px 15px 5px;
             padding: 20px;
             border-bottom-left-radius: 16px;
@@ -106,9 +59,6 @@
             border: 1px solid #333;
             border-top: none;
             animation: fadeIn 0.3s ease;
-            backdrop-filter: blur(4px);
-            position: relative;
-            z-index: 2;
         }
 
         @keyframes fadeIn {
@@ -126,8 +76,6 @@
             border-radius: 20px;
             text-align: center;
             width: 100%;
-            position: relative;
-            z-index: 1;
         }
         .cta-box h3 { margin-top: 0; font-size: 1.3rem; }
         .cta-link {
@@ -141,47 +89,53 @@
             margin-top: 15px;
         }
 
-        .footer { margin: 40px 0; font-size: 0.8rem; color: #636e72; text-align: center; position: relative; z-index: 1; }
+        .footer { margin: 40px 0; font-size: 0.8rem; color: #636e72; text-align: center; }
+        .footer a { color: #81b37a; text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+
+        .home-link {
+            display: inline-block;
+            margin: 6px 0 16px 0;
+            background: #2a2a2a;
+            padding: 8px 18px;
+            border-radius: 40px;
+            color: #b2bec3;
+            text-decoration: none;
+            font-size: 0.9rem;
+            border: 1px solid #3a3a3a;
+            transition: 0.2s;
+        }
+        .home-link:hover {
+            background: #333;
+            color: #fff;
+            border-color: var(--accent);
+        }
     </style>
 </head>
 <body>
 
-    <!-- ===== PYRAMID BACKGROUND (ASCII) ===== -->
-    <div class="pyramid-bg">
-                    ┌─────────────────────┐
-                    │     ENDOCRINOLOGY    │
-                    │   (Hormonal Master)  │
-                    │ ┌─────────────────┐  │
-                    │ │   NUTRITION     │  │
-                    │ │ (Metabolic Fuel)│  │
-                    │ │ ┌─────────────┐ │  │
-                    │ │ │ SOMNOLOGY   │ │  │
-                    │ │ │(Restorative)│ │  │
-                    │ │ └─────────────┘ │  │
-                    │ └─────────────────┘  │
-                    └─────────────────────┘
-    </div>
-
     <div class="header">
         <h1>Optimizer Hub 🌿</h1>
         <p>Expert protocols for your health journey</p>
+        <a href="https://257-spec.github.io/MBTE/" class="home-link" target="_blank">🏠 MBTE Hub</a>
     </div>
 
     <div class="container">
 
+        <!-- 🥗 Nutrition Fundamentals (UPDATED) -->
         <div class="guide-card" onclick="toggleGuide('guide1')">
             <span>🥗 Nutrition Fundamentals</span>
             <span>↓</span>
         </div>
         <div id="guide1" class="guide-content">
             <p class="guide-text">
-                <strong>Key Targets:</strong>
-                • Focus on whole-food fats for hormone synthesis.
-                • Include fermented foods (Kefir/Sauerkraut).
-                • Eliminate seed oils and processed sugars.
-                • have a macro based balanced diet focus on micros enough nutrients 
-                • include in root vegetables, fruits meat organs raw dairy animal fats only for cooking 
-                • time your foods focus on quality
+                <strong>Key Targets (revised):</strong>
+                • focus on key organs like beef heart and liver, emphasize on quality (grass fed pasture raised A2)<br>
+                • Choose starches as 70% of your carbs use fruits sparingly<br>
+                • Sear with ghee drizzle with olive oil<br>
+                • Emphasize on oysters, sardines liver, Heart root vegs raw A2 clean goat or sheep dairy<br>
+                • Use alliums in cooking<br>
+                • Avoid seed oils, ultra processed stuff And green or leafy vegetables
             </p> 
         </div>
 
@@ -220,6 +174,7 @@
             </p>
         </div>
         
+        <!-- 🦴 Bone Mass (UPDATED: removed bone growth formula through cold water dunk, added new note) -->
         <div class="guide-card" onclick="toggleGuide('guide4')">
             <span>🦴 Bone Mass</span>
             <span>↓</span>
@@ -232,10 +187,7 @@
                 • getting a lot of macros in 1g of each per lb of bw
                 • sprints heavy lifts explosive movements 
                 • raw dairy ofc
-                • a bone growth formula-Raw Beetroot Juice (Wait 30 mins)
-                • Explosive Movements (Jumps/Sprints)y + Whey Shake
-                • Sweet or Regular Potatoes
-             seconds)
+                • emphasize on carbs + leucine from dairy together prior to bone stimulus from exercise or milder "bone smashing"
             </p>
         </div>
             
@@ -302,34 +254,10 @@
         </div>
 
         <div class="guide-card" onclick="toggleGuide('guide8')">
-            <span>🧬 Lowering Aromatase-E2</span>
-            <span>↓</span>
-        </div>
-        <div id="guide8" class="guide-content">
-            <p class="guide-text">
-                <strong>Protocol:</strong>
-                15-30mg Zinc Balanced with 1-2mg copper 
-                5-10 thousand UI vitamin D3
-                400mg magnesium, malate or glycinate 
-                Raw carrots 
-                Fiber intake 
-                Coffee/caffeine 150-200mg unless sensitive 
-                Low dose nicotine pills (highly addictive, beware)
-                Losing fat
-                Increasing DHT and supporting 5AR 
-                Avoid soy, flaxseeds DHT blockers, endocrine disruptors
-                Manage cortisol, 
-                Maintain regular exercise 
-                Steamed cruciferous vegs or DIM supplement 
-                avoid conventional dairy
-            </p>
-        </div>
-
-        <div class="guide-card" onclick="toggleGuide('guide9')">
             <span>🧬 Lowering SHBG</span>
             <span>↓</span>
         </div>
-        <div id="guide9" class="guide-content">
+        <div id="guide8" class="guide-content">
             <p class="guide-text">
                 <strong>conclude in</strong>
                 stress Management 
@@ -344,11 +272,11 @@
             </p>
         </div>
 
-        <div class="guide-card" onclick="toggleGuide('guide10')">
+        <div class="guide-card" onclick="toggleGuide('guide9')">
             <span>📉 Cortisol & Prolactin</span>
             <span>↓</span>
         </div>
-        <div id="guide10" class="guide-content">
+        <div id="guide9" class="guide-content">
             <p class="guide-text">
                 <strong>conclude in</strong>
                 synchronizing circadian rhythm high quality 8-10 hrs sleep
@@ -365,11 +293,11 @@
             </p>
         </div>
 
-        <div class="guide-card" onclick="toggleGuide('guide11')">
+        <div class="guide-card" onclick="toggleGuide('guide10')">
             <span>🦋 Thyroid Optimization</span>
             <span>↓</span>
         </div>
-        <div id="guide11" class="guide-content">
+        <div id="guide10" class="guide-content">
             <p class="guide-text">
                 <strong>conclude in</strong> 
                 focusing on sleep
@@ -387,6 +315,38 @@
                 selenium
             </p>
         </div>
+
+        <!-- Insulin Sensitivity -->
+        <div class="guide-card" onclick="toggleGuide('guide11')">
+            <span>🩸 Insulin Sensitivity</span>
+            <span>↓</span>
+        </div>
+        <div id="guide11" class="guide-content">
+            <p class="guide-text">
+                <strong>Insulin Sensitivity Protocol:</strong>
+                focus on sleep quality, 8 hours and optimize your circadian rhythm 
+                Focus on starches and roots over fruits 
+                Don't mix carbs and fats together below 4:1 ratio to each other 
+                Implement weekly heavy lifts and occasional 16 hour fasts walk after meals and keep micronutrients sufficient (Zinc, Mg Chromium, vitamin D)
+            </p>
+        </div>
+
+        <!-- Lowering Estradiol (UPDATED with copper) -->
+        <div class="guide-card" onclick="toggleGuide('guide12')">
+            <span>⚖️ Lower Estradiol (E2)</span>
+            <span>↓</span>
+        </div>
+        <div id="guide12" class="guide-content">
+            <p class="guide-text">
+                <strong>Androgen Support – E2 management:</strong>
+                30mg Zinc, 5-10 thousand UI vitamin D 9mg boron (cycle it 2 weeks on 1 off)
+                Regular exercise 
+                Raw carrot salad, soluble fiber
+                Caffeine 
+                Manage cortisol, keep dopamine stable
+                (Ensure dietary copper)
+            </p>
+        </div>
          
         <div class="cta-box">
             <h3>Ready for 1-on-1 Coaching?</h3>
@@ -395,7 +355,10 @@
         </div>
     </div>
 
-    <div class="footer">© 2026 Optimization Protocol</div>
+    <div class="footer">
+        © 2026 Optimization Protocol &nbsp;·&nbsp; 
+        <a href="https://257-spec.github.io/MBTE/" target="_blank">MBTE Reference</a>
+    </div>
 
     <script>
         function toggleGuide(id) {
